@@ -6,6 +6,8 @@
 //     type: 'DECREASE_COUNT
 // }
 
+import movies from "../reducers";
+
 export const ADD_MOVIES = 'ADD_MOVIES';
 export const ADD_TO_FAVOURITE = 'ADD_TO_FAVOURITE';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
@@ -34,4 +36,14 @@ export function setShowFavourites (val) {
         val
     }
 }
+const initialSearchState = {result: {}}
+export function search (state = initialSearchState,action) {
+    return state;
+}
 
+export default function rootReducer (state,action) {
+    return {
+        movies: movies(state,action),
+        search: search(state,action)
+    }
+}
